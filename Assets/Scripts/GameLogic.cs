@@ -9,7 +9,7 @@ public class GameLogic : MonoBehaviour
 
     void Start()
     {
-        
+        // Add more game logic when the time comes
     }
 
     // Update is called once per frame
