@@ -1,12 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using NUnit.Framework.Constraints;
+using TMPro;
 
 public class WaveSpawner : MonoBehaviour
 {
     public Transform enemyPrefab;
 
     public Transform spawnPoint;
+    public TextMeshProUGUI statusText;
+    public TextMeshProUGUI cashText;
 
     public float timeBetweenWaves = 5f;
     private float countdown = 2f;
@@ -27,6 +30,8 @@ public class WaveSpawner : MonoBehaviour
         }
 
         countdown -= Time.deltaTime;
+
+        statusText.text = Mathf.Round(countdown).ToString();
     }
 
     IEnumerator SpawnWave()

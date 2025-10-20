@@ -13669,6 +13669,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5306967775015655416, guid: d79dcd0e2ff2b51499aa1be4d1351916, type: 3}
   spawnPoint: {fileID: 863950524}
+  statusText: {fileID: 1434263222}
+  cashText: {fileID: 1443078530}
   timeBetweenWaves: 25
 --- !u!1 &1917271592
 GameObject:
