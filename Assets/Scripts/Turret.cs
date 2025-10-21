@@ -19,6 +19,9 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
     public float turnSpeed = 10f;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
     void Start()
     {
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -62,8 +65,11 @@ public class Turret : MonoBehaviour
 
         if (fireCooldown <= 0f)
         {
-            fireCooldown -= Time.deltaTime;
+            Shoot();
+            fireCooldown = 1f / fireRate;
         }
+
+        fireCooldown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()
@@ -74,6 +80,12 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shot Target");
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGO.GetComponent<Bullet>();
+
+        if (bullet != null)
+        {
+            bullet.Seek(target);
+        }
     }
 }
