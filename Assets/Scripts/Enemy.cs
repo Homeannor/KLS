@@ -22,6 +22,12 @@ public class Enemy : MonoBehaviour
         {
             GetNextWaypoint();
         }
+
+        if (dir != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(dir);
+            transform.rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
+        }
     }
 
     void GetNextWaypoint()
