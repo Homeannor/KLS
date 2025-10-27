@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class Node : MonoBehaviour
 {
     public Color hoverColour;
     private Color startColour;
@@ -14,13 +14,17 @@ public class Node : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         startColour = rend.material.color;
     }
 
-    public void OnPointerEnter(PointerEventData eventdata)
+    void OnMouseEnter()
     {
+        Debug.Log("Mouse entered");
+
         rend.material.color = hoverColour;
     }
-
-    public void OnPointerExit(PointerEventData eventdata)
+    
+    void OnMouseExit()
     {
+        Debug.Log("Mouse exited");
+
         rend.material.color = startColour;
     }
 }

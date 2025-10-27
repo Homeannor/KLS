@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9264be441d94aec4b9f79ab726698d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColour: {r: 0, g: 1, b: 0, a: 0}
+  hoverColour: {r: 0, g: 1, b: 0, a: 1}
