@@ -66,7 +66,7 @@ public class Turret : MonoBehaviour
         if (fireCooldown <= 0f)
         {
             Shoot();
-            fireCooldown = 1f / fireRate;
+            fireCooldown = fireRate;
         }
 
         fireCooldown -= Time.deltaTime;
