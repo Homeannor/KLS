@@ -33,4 +33,12 @@ public class BuildManager : MonoBehaviour
     {
         turretToBuild = turret;
     }
+
+    /* == Kaden colour change code example ==
+     public void colourChange(GameObject sprite)
+    {
+        Renderer spriteRenderer = sprite.GetComponent<Renderer>();
+        spriteRenderer.material.color = Color.blue;
+    }*/
 }
+
