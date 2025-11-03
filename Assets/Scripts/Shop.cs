@@ -4,25 +4,29 @@ public class Shop : MonoBehaviour
 {
     private BuildManager buildManager;
 
+    public TurretBlueprint cannonTower;
+    public TurretBlueprint archerTower;
+    public TurretBlueprint magicTower;
+
     private void Start()
     {
         buildManager = BuildManager.instance;
     }
-    public void PurchaseCannonTower()
+    public void SelectCannonTower()
     {
         Debug.Log("Cannon Tower Selected");
-        buildManager.SetTurretToBuild(buildManager.cannonTowerPrefab);
+        buildManager.SelectTurretToBuild(cannonTower);
     }
 
-    public void PurchaseArcherTower()
+    public void SelectArcherTower()
     {
         Debug.Log("Archer Tower Selected");
-        buildManager.SetTurretToBuild(buildManager.archerTowerPrefab);
+        buildManager.SelectTurretToBuild(archerTower);
     }
 
-    public void PurchaseMagicTower()
+    public void SelectMagicTower()
     {
         Debug.Log("Magic Tower Selected");
-        buildManager.SetTurretToBuild(buildManager.magicTowerPrefab);
+        buildManager.SelectTurretToBuild(magicTower);
     }
 }

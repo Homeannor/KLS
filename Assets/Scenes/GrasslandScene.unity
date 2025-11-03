@@ -343,6 +343,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91a9b8db5fccdd4c85b54cce0a5f1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cannonTower:
+    prefab: {fileID: 0}
+    cost: 0
+  archerTower:
+    prefab: {fileID: 0}
+    cost: 0
+  magicTower:
+    prefab: {fileID: 0}
+    cost: 0
 --- !u!114 &38031121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,7 +622,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseArcherTower
+      value: SelectArcherTower
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -5662,7 +5671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseMagicTower
+      value: SelectMagicTower
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -7192,7 +7201,7 @@ GameObject:
   - component: {fileID: 1137573056}
   - component: {fileID: 1137573060}
   - component: {fileID: 1137573059}
-  - component: {fileID: 1137573057}
+  - component: {fileID: 1137573061}
   m_Layer: 5
   m_Name: Shop Panel
   m_TagString: Untagged
@@ -7207,7 +7216,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137573055}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7220,18 +7229,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 90}
   m_SizeDelta: {x: 0, y: 180}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1137573057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137573055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d91a9b8db5fccdd4c85b54cce0a5f1f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1137573059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7270,6 +7267,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1137573055}
   m_CullTransparentMesh: 1
+--- !u!114 &1137573061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137573055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91a9b8db5fccdd4c85b54cce0a5f1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cannonTower:
+    prefab: {fileID: 559312082734426649, guid: 554ce5a265af097468e44084edf4ac42, type: 3}
+    cost: 100
+  archerTower:
+    prefab: {fileID: 3317800008994361706, guid: 3df5fdb9d198b634c969de96f23a3a88, type: 3}
+    cost: 200
+  magicTower:
+    prefab: {fileID: 5511186306189906516, guid: 8ae69da5f9f8dc3468e25f16d5fd7a0d, type: 3}
+    cost: 300
 --- !u!1 &1140351562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,7 +7760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: PurchaseCannonTower
+      value: SelectCannonTower
       objectReference: {fileID: 0}
     - target: {fileID: 8610991334493301009, guid: 8556eebbec386b0459a0c3b71be776af, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName

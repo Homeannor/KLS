@@ -3,6 +3,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
+    public float explosionRadius = 0f;
     public float speed = 70f;
 
     public void Seek(Transform _target)
@@ -32,8 +33,12 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        // Debug.Log("TARGET HIT");
-        Destroy(target.gameObject);
+        Damage(target);
         Destroy(gameObject);
+    }
+
+    void Damage(Transform enemy)
+    {
+        Destroy(enemy.gameObject);
     }
 }
