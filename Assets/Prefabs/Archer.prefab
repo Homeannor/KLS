@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 092a59d0591842f4882bfe088a056054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 25
-  fireRate: 3
+  range: 12
+  fireRate: 2
   partToRotate: {fileID: 8220209160831556314}
   turnSpeed: 10
   bulletPrefab: {fileID: 3538003668132485849, guid: 9e76353c0a950914eb38991a98538600, type: 3}

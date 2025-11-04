@@ -15,7 +15,17 @@ public class GameLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerStats.Money <= 0)
+        {
+            EndGame();
+        }
+
         DayNightCycle();
+    }
+
+    void EndGame()
+    {
+        Debug.Log("Game Over!");
     }
 
     void DayNightCycle()

@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Attributes")]
     public float speed = 10f;
+    public int stealAmount = 10;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -39,6 +41,9 @@ public class Enemy : MonoBehaviour
                 isReturning = true;
                 wavepointIndex--;
                 target = Waypoints.points[wavepointIndex];
+
+                PlayerStats.Money -= stealAmount;
+
                 return;
             }
 
