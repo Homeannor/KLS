@@ -15,10 +15,6 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    public GameObject cannonTowerPrefab;
-    public GameObject archerTowerPrefab;
-    public GameObject magicTowerPrefab;
-
     private TurretBlueprint turretToBuild;
 
     public bool CanBuild { get { return turretToBuild != null; } }

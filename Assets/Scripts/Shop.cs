@@ -15,8 +15,22 @@ public class Shop : MonoBehaviour
     public void SelectCannonTower()
     {
         Debug.Log("Cannon Tower Selected");
+        if (cannonTower == null)
+        {
+            Debug.LogError("CannonTower blueprint itself is NULL!");
+        }
+        else if (cannonTower.prefab == null)
+        {
+            Debug.LogError("CannonTower.prefab is NULL!");
+        }
+        else
+        {
+            Debug.Log("CannonTower.prefab is assigned to: " + cannonTower.prefab.name);
+        }
+
         buildManager.SelectTurretToBuild(cannonTower);
     }
+
 
     public void SelectArcherTower()
     {

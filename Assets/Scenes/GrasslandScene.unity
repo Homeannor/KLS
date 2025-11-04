@@ -9776,6 +9776,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2797609945826795464, guid: 8e80088080e1a344dba23a1bd458e7d0, type: 3}
+      propertyPath: turret
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3066336900891054780, guid: 8e80088080e1a344dba23a1bd458e7d0, type: 3}
       propertyPath: m_Name
       value: Node (39)
@@ -12615,9 +12619,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c981404dd7d6bf4d91493b1e5f75ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cannonTowerPrefab: {fileID: 559312082734426649, guid: 554ce5a265af097468e44084edf4ac42, type: 3}
-  archerTowerPrefab: {fileID: 3317800008994361706, guid: 3df5fdb9d198b634c969de96f23a3a88, type: 3}
-  magicTowerPrefab: {fileID: 5511186306189906516, guid: 8ae69da5f9f8dc3468e25f16d5fd7a0d, type: 3}
 --- !u!1001 &1920377328
 PrefabInstance:
   m_ObjectHideFlags: 0
