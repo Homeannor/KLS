@@ -11,6 +11,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public TextMeshProUGUI statusText;
     public TextMeshProUGUI cashText;
+    public Animator clearTextAnimator;
 
     public float timeBetweenWaves = 5f;
     private float countdown = 3f;
@@ -23,12 +24,14 @@ public class WaveSpawner : MonoBehaviour
         if (countdown <= 0f)
         {
             waveStarted = true;
+            PlayerStats.Money += 50 * waveIndex;
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
 
         if (enemyFolder.childCount == 0 && waveStarted == true)
         {
+            clearTextAnimator.SetTrigger("Flash");
             waveStarted = false;
             countdown = 3f;
         }
@@ -36,7 +39,7 @@ public class WaveSpawner : MonoBehaviour
         countdown -= Time.deltaTime;
         countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
 
-        statusText.text = string.Format("{0:00.00}", countdown);
+        statusText.text = string.Format("WAVE " + waveIndex + " - {0:00.00}", countdown);
     }
 
     IEnumerator SpawnWave()
