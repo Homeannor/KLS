@@ -17,7 +17,7 @@ public class WaveSpawner : MonoBehaviour
     public float timeBetweenWaves = 5f;
     private float countdown = 3f;
 
-    private int waveIndex = 0;
+    public int waveIndex = 0;
     private int enemiesLeftToSpawn = 0;
     private bool waveStarted = false;
 

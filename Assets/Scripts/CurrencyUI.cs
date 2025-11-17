@@ -8,8 +8,8 @@ public class CurrencyUI : MonoBehaviour
     public Animator decreaseTextAnimator;
     public GameObject profitTextLabel;
 
-    private int totalProfit;
-    private int totalLosses;
+    public int totalProfit;
+    public int totalLosses;
 
     void Start()
     {

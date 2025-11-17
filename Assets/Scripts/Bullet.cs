@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
     {
         PlayerStats.Money += enemy.gameObject.GetComponent<Enemy>().stealAmount;
         currencyUI.profitText(enemy.gameObject.GetComponent<Enemy>().stealAmount);
+        PlayerStats.enemiesEliminated++;
 
         Destroy(enemy.gameObject);
     }

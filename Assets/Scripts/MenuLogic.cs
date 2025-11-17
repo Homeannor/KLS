@@ -8,6 +8,11 @@ public class MenuLogic : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void menuButton()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     public void quitButton()
     {
         Application.Quit();
