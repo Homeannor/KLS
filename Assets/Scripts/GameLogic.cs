@@ -81,6 +81,5 @@ public class GameLogic : MonoBehaviour
         float t = Mathf.Sin(timeOfDay / dayDuration * Mathf.PI * 2f) * 0.5f * 0.5f;
 
         sun.transform.rotation = Quaternion.Euler(angle - 90, 170, 0f);
-        // sun.color = Color.Lerp(Color.black, Color.yellow, t);
     }
 }
