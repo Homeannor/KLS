@@ -5,6 +5,8 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
 
+    public CurrencyUI currencyUI;
+
     void Awake()
     {
         if (instance != null)
@@ -33,6 +35,7 @@ public class BuildManager : MonoBehaviour
         node.turret = turret;
 
         PlayerStats.Money -= turretToBuild.cost;
+        currencyUI.decreaseText(turretToBuild.cost);
 
         if (!HasMoney)
         {

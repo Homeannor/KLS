@@ -12,24 +12,29 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI statusText;
     public TextMeshProUGUI cashText;
     public Animator clearTextAnimator;
+    public CurrencyUI currencyUI;
 
     public float timeBetweenWaves = 5f;
     private float countdown = 3f;
 
     private int waveIndex = 0;
+    private int enemiesLeftToSpawn = 0;
     private bool waveStarted = false;
 
     void Update()
     {
         if (countdown <= 0f)
         {
+            int profitAmount = 50 * waveIndex;
+            PlayerStats.Money += profitAmount;
+            currencyUI.profitText(profitAmount);
+            
             waveStarted = true;
-            PlayerStats.Money += 50 * waveIndex;
             StartCoroutine(SpawnWave());
             countdown = timeBetweenWaves;
         }
 
-        if (enemyFolder.childCount == 0 && waveStarted == true)
+        if (enemyFolder.childCount == 0 && waveStarted == true && enemiesLeftToSpawn == 0)
         {
             clearTextAnimator.SetTrigger("Flash");
             waveStarted = false;
@@ -45,10 +50,12 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveIndex++;
+        enemiesLeftToSpawn = waveIndex;
 
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy("Basic");
+            enemiesLeftToSpawn--;
             yield return new WaitForSeconds(0.5f);
         }
     }

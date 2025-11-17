@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     private Transform target;
     private int wavepointIndex = 0;
     private bool isReturning = false;
+    private CurrencyUI currencyUI;
 
     void Start()
     {
         target = Waypoints.points[0];
+        currencyUI = FindAnyObjectByType<CurrencyUI>();
     }
 
     void Update()
@@ -43,6 +45,8 @@ public class Enemy : MonoBehaviour
                 target = Waypoints.points[wavepointIndex];
 
                 PlayerStats.Money -= stealAmount;
+                currencyUI.decreaseText(stealAmount);
+                stealAmount *= 2;
 
                 return;
             }

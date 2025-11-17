@@ -56,6 +56,8 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
+        fireCooldown -= Time.deltaTime;
+        
         if (target == null) { return; }
 
         Vector3 dir = target.position - transform.position;
@@ -68,8 +70,6 @@ public class Turret : MonoBehaviour
             Shoot();
             fireCooldown = fireRate;
         }
-
-        fireCooldown -= Time.deltaTime;
     }
 
     private void OnDrawGizmosSelected()
