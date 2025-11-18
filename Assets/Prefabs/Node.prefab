@@ -121,4 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9264be441d94aec4b9f79ab726698d61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoverColour: {r: 0, g: 1, b: 0, a: 1}
+  hoverColour: {r: 0, g: 0, b: 0, a: 0.39215687}
+  hoverBuyColour: {r: 0, g: 1, b: 0, a: 1}
+  selectColour: {r: 0, g: 0.5882353, b: 1, a: 1}
+  positionOffset: {x: 0, y: 0, z: 0}
+  turret: {fileID: 0}

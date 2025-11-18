@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     private Transform target;
     public float explosionRadius = 0f;
     public float speed = 70f;
+    public float damage = 10f;
     private CurrencyUI currencyUI;
 
     public void Seek(Transform _target)
@@ -39,15 +40,16 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
-        Damage(target);
+        target.GetComponent<Enemy>().takeDamage(damage);
+        Destroy(gameObject);
     }
 
-    void Damage(Transform enemy)
+    /*void Damage(Transform enemy)
     {
         PlayerStats.Money += enemy.gameObject.GetComponent<Enemy>().stealAmount;
         currencyUI.profitText(enemy.gameObject.GetComponent<Enemy>().stealAmount);
         PlayerStats.enemiesEliminated++;
 
         Destroy(enemy.gameObject);
-    }
+    }*/
 }

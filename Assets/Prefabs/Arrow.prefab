@@ -239,7 +239,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43afa137f3d72244b8941e09fdde2372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionRadius: 0
   speed: 70
+  damage: 10
 --- !u!1 &2302298791832286524
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,7 +483,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43afa137f3d72244b8941e09fdde2372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionRadius: 0
   speed: 70
+  damage: 50
 --- !u!136 &3308695150430125762
 CapsuleCollider:
   m_ObjectHideFlags: 0

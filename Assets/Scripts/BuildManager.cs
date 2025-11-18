@@ -18,7 +18,10 @@ public class BuildManager : MonoBehaviour
         instance = this;
     }
 
-    private TurretBlueprint turretToBuild;
+    private TurretBlueprint turretToBuild = null;
+    private Node selectedNode;
+
+    public NodeUI nodeUI;
 
     public bool CanBuild { get { return turretToBuild != null; } }
     public bool HasMoney { get { return PlayerStats.Money >= turretToBuild.cost; } }
@@ -45,9 +48,20 @@ public class BuildManager : MonoBehaviour
         turretToBuild = null;
     }
 
+    public void SelectNode(Node node)
+    {
+        selectedNode = node;
+        turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+    }
+
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
+
+        nodeUI.Hide();
     }
 
     /* == Kaden colour change code example ==

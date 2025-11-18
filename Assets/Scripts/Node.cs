@@ -4,6 +4,8 @@ using UnityEngine.EventSystems;
 public class Node : MonoBehaviour
 {
     public Color hoverColour;
+    public Color hoverBuyColour;
+    public Color selectColour;
     private Color startColour;
     public Vector3 positionOffset;
 
@@ -28,19 +30,16 @@ public class Node : MonoBehaviour
 
     void OnMouseDown()
     {
-        /*if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }*/
+        //if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
-        if (!buildManager.CanBuild)
-        {
-            return;
-        }
+        //if (!buildManager.CanBuild) { return; }
+
+        if (Time.timeScale == 0) { return; }
 
         if (turret != null)
         {
-            Debug.Log("Can't Build there");
+            buildManager.SelectNode(this);
+            //rend.material.color = selectColour;
             return;
         }
 
@@ -49,21 +48,26 @@ public class Node : MonoBehaviour
 
     void OnMouseEnter()
     {
-        /*if (EventSystem.current.IsPointerOverGameObject())
-        {
-            return;
-        }*/
+        //if (EventSystem.current.IsPointerOverGameObject()) { return; }
 
-        if (!buildManager.CanBuild)
+        if (Time.timeScale == 0) { return; }
+
+        if (buildManager.CanBuild)
         {
-            return;
+            rend.material.color = hoverBuyColour;
         }
-
-        rend.material.color = hoverColour;
+        else
+        {
+            rend.material.color = hoverColour;
+        }
     }
     
     void OnMouseExit()
     {
+        // if (rend.material.color != selectColour) {}
+
+        if (Time.timeScale == 0) { return; }
+            
         rend.material.color = startColour;
     }
 }

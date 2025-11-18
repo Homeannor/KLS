@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.UIElements.Experimental;
 
 public class Enemy : MonoBehaviour
 {
     [Header("Attributes")]
-    public float speed = 10f;
+    public float startSpeed = 10f;
+    public float speed;
     public int stealAmount = 10;
+    public float startHealth = 100f;
+    public float health;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -15,6 +19,25 @@ public class Enemy : MonoBehaviour
     {
         target = Waypoints.points[0];
         currencyUI = FindAnyObjectByType<CurrencyUI>();
+
+        health = startHealth;
+        speed = startSpeed;
+    }
+
+    public void takeDamage(float amount)
+    {
+        health -= amount;
+        Debug.Log("Enemy health: " + health.ToString());
+
+        if (health <= 0)
+        {
+            PlayerStats.Money += stealAmount;
+            currencyUI.profitText(stealAmount);
+            PlayerStats.enemiesEliminated++;
+
+            Debug.Log("Enemy Died!");
+            Destroy(gameObject);
+        }
     }
 
     void Update()
