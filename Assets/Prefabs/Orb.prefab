@@ -5097,3 +5097,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 0
   speed: 11
+  damage: 40

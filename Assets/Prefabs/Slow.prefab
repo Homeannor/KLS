@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2448261016949225880}
   - component: {fileID: 8210406402162225599}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Slow
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2bf42e7696d49ae449bd6d5165348d4e, type: 2}
+  - {fileID: 2100000, guid: 1ac986fe53a56ba41b1925b102d0bd62, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -121,8 +121,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce22fc5b4df7b664f8c7311a0f0eb0d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
+  startSpeed: 5
   speed: 0
-  stealAmount: 10
-  startHealth: 100
+  stealAmount: 100
+  startHealth: 1300
   health: 0

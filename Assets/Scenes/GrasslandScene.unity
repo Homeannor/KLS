@@ -17959,6 +17959,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 5306967775015655416, guid: d79dcd0e2ff2b51499aa1be4d1351916, type: 3}
+  slowPrefab: {fileID: 5306967775015655416, guid: 4073e667b08b01f46ac5829d8edf27bb, type: 3}
+  fastPrefab: {fileID: 5306967775015655416, guid: ad5e7135065522d4fa7e0d1b864961da, type: 3}
+  deyuraPrefab: {fileID: 5306967775015655416, guid: 898b187de40d91e49b478b4be7a222c9, type: 3}
   enemyFolder: {fileID: 1669309752}
   spawnPoint: {fileID: 863950524}
   statusText: {fileID: 1434263222}
