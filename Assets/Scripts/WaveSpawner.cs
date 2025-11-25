@@ -46,17 +46,17 @@ public class WaveSpawner : MonoBehaviour
             countdown = 3f;
         }
 
-        countdown -= Time.deltaTime;
-        countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
-
-        if (waveIndex < 30)
+        if (waveIndex < 20)
         {
             statusText.text = string.Format("WAVE " + waveIndex + " - {0:00.00}", countdown);
+            countdown -= Time.deltaTime;
+            countdown = Mathf.Clamp(countdown, 0f, Mathf.Infinity);
         }
         else
         {
             statusText.text = "THE FINAL WAVE.";
             statusText.color = Color.red;
+            countdown = Mathf.Infinity;
         }
     }
 
@@ -64,7 +64,7 @@ public class WaveSpawner : MonoBehaviour
     {
         waveIndex++;
 
-        if (waveIndex <= 5)
+        if (waveIndex < 5)
         {
             enemiesLeftToSpawn = waveIndex;
 

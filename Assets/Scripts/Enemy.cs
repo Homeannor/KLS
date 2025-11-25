@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class Enemy : MonoBehaviour
     public int stealAmount = 10;
     public float startHealth = 100f;
     public float health;
+
+    public Image healthBar;
 
     private Transform target;
     private int wavepointIndex = 0;
@@ -28,6 +31,22 @@ public class Enemy : MonoBehaviour
     {
         health -= amount;
         Debug.Log("Enemy health: " + health.ToString());
+
+        float healthPercentage = health / startHealth;
+        healthBar.fillAmount = healthPercentage;
+
+        if (healthPercentage <= 0.25)
+        {
+            healthBar.color = Color.red;
+        }
+        else if (healthPercentage <= 0.5)
+        {
+            healthBar.color = Color.yellow;
+        }
+        else
+        {
+            healthBar.color = Color.green;
+        }
 
         if (health <= 0)
         {

@@ -1,6 +1,7 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class Turret : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class Turret : MonoBehaviour
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+
+    public Image cooldownBar;
+    public GameObject cannonCanvas;
 
     void Start()
     {
@@ -56,7 +60,19 @@ public class Turret : MonoBehaviour
 
     void Update()
     {
-        fireCooldown -= Time.deltaTime;
+        if (fireCooldown > 0)
+        {
+            cannonCanvas.SetActive(true);
+            
+            fireCooldown -= Time.deltaTime;
+
+            float cooldownPerentage = fireCooldown / fireRate;
+            cooldownBar.fillAmount = cooldownPerentage;
+        }
+        else
+        {
+            cannonCanvas.SetActive(false);
+        }
         
         if (target == null) { return; }
 
