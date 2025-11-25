@@ -4616,7 +4616,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 803297519}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
       propertyPath: m_LocalScale.x
@@ -4632,15 +4632,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.8
+      value: -48.03273
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.7
+      value: -5.4119463
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 35.6
+      value: 22.123993
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
       propertyPath: m_LocalRotation.w
@@ -5631,6 +5631,11 @@ PrefabInstance:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2285676717535523954, guid: be3b2f2b8679fe040a3762ad862287a6, type: 3}
   m_PrefabInstance: {fileID: 609588688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &609934429 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 68f4ab78f7615d048ae2387c8f126d57, type: 3}
+  m_PrefabInstance: {fileID: 463916859}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &610941958
 GameObject:
@@ -7670,6 +7675,7 @@ Transform:
   - {fileID: 613298711}
   - {fileID: 1954634920}
   - {fileID: 1149864362}
+  - {fileID: 609934429}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &803801236
@@ -19932,4 +19938,3 @@ SceneRoots:
   - {fileID: 1669309752}
   - {fileID: 1961416171}
   - {fileID: 803297519}
-  - {fileID: 463916859}
