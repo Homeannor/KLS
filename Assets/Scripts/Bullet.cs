@@ -7,10 +7,12 @@ public class Bullet : MonoBehaviour
     public float speed = 70f;
     public float damage = 10f;
     private CurrencyUI currencyUI;
+    public GameObject turretOrigin;
 
-    public void Seek(Transform _target)
+    public void Seek(Transform _target, GameObject origin)
     {
         target = _target;
+        turretOrigin = origin;
     }
 
     void Start()
@@ -41,6 +43,7 @@ public class Bullet : MonoBehaviour
     void HitTarget()
     {
         target.GetComponent<Enemy>().takeDamage(damage);
+        turretOrigin.GetComponent<Turret>().hitAmount++;
         Destroy(gameObject);
     }
 

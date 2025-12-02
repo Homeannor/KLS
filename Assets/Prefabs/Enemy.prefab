@@ -276,7 +276,7 @@ MonoBehaviour:
   startSpeed: 10
   speed: 0
   stealAmount: 15
-  startHealth: 100
+  startHealth: 200
   health: 0
   healthBar: {fileID: 797568489832438553}
 --- !u!1 &5587485351548940814

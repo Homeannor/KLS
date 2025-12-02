@@ -264,3 +264,4 @@ MonoBehaviour:
   explosionRadius: 0
   speed: 70
   damage: 25
+  turretOrigin: {fileID: 0}

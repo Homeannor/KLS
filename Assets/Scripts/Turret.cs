@@ -19,16 +19,27 @@ public class Turret : MonoBehaviour
 
     public Transform partToRotate;
     public float turnSpeed = 10f;
+    public float hitAmount = 0f;
+    public float upgradeAmount = 10f;
 
     public GameObject bulletPrefab;
     public Transform firePoint;
 
     public Image cooldownBar;
     public GameObject cannonCanvas;
+    public GameObject abilityCanvas;
+    public Image abilityBar;
+    public GameObject abilityAura;
+    private bool upgraded;
+
 
     void Start()
     {
+        upgraded = false;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        abilityCanvas.SetActive(true);
+        abilityAura.SetActive(false);
+        hitAmount = 0f;
     }
 
     void UpdateTarget()
@@ -58,7 +69,7 @@ public class Turret : MonoBehaviour
         }
     }
 
-    void Update()
+    void cooldownUI()
     {
         if (fireCooldown > 0)
         {
@@ -73,19 +84,52 @@ public class Turret : MonoBehaviour
         {
             cannonCanvas.SetActive(false);
         }
-        
+    }
+
+    void turretTargeting()
+    {
         if (target == null) { return; }
 
         Vector3 dir = target.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(dir);
         Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+
+    void turretShooting()
+    {
+        if (target == null) { return; }
 
         if (fireCooldown <= 0f)
         {
             Shoot();
             fireCooldown = fireRate;
         }
+    }
+
+    void upgradeProgress()
+    {
+        if (hitAmount >= upgradeAmount && upgraded == false)
+        {
+            upgraded = true;
+
+            abilityCanvas.SetActive(false);
+            abilityAura.SetActive(true);
+            fireRate /= 2;
+        }
+        else
+        {
+            float abilityPercentage = hitAmount / upgradeAmount;
+            abilityBar.fillAmount = abilityPercentage;
+        }
+    }
+
+    void Update()
+    {
+        cooldownUI();
+        turretTargeting();
+        turretShooting();
+        upgradeProgress();
     }
 
     private void OnDrawGizmosSelected()
@@ -99,9 +143,15 @@ public class Turret : MonoBehaviour
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
+        if (upgraded == true)
+        {
+            bullet.damage *= 2;
+            bullet.speed *= 2;
+        }
+
         if (bullet != null)
         {
-            bullet.Seek(target);
+            bullet.Seek(target, gameObject);
         }
     }
 }
