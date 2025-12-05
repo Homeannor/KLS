@@ -44,8 +44,8 @@ Light:
   serializedVersion: 11
   m_Type: 2
   m_Color: {r: 0, g: 1, b: 1, a: 1}
-  m_Intensity: 200
-  m_Range: 100
+  m_Intensity: 10000
+  m_Range: 500
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5219,6 +5219,7 @@ MonoBehaviour:
   explosionRadius: 0
   speed: 100
   damage: 1200
+  turretOrigin: {fileID: 0}
 --- !u!1001 &8194630097194252214
 PrefabInstance:
   m_ObjectHideFlags: 0

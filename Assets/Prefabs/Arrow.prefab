@@ -242,6 +242,7 @@ MonoBehaviour:
   explosionRadius: 0
   speed: 70
   damage: 10
+  turretOrigin: {fileID: 0}
 --- !u!1 &2302298791832286524
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionRadius: 0
   speed: 70
-  damage: 50
+  damage: 75
+  turretOrigin: {fileID: 0}
 --- !u!136 &3308695150430125762
 CapsuleCollider:
   m_ObjectHideFlags: 0

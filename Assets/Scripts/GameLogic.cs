@@ -58,6 +58,15 @@ public class GameLogic : MonoBehaviour
         Time.timeScale = isPaused ? 0 : 1;
     }
 
+    private string FormatTimer(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+        int hundredths = Mathf.FloorToInt((time * 100f) % 100f);
+
+        return string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, hundredths);
+    }
+
     void EndGame()
     {
         gameEnded = true;
@@ -65,7 +74,25 @@ public class GameLogic : MonoBehaviour
 
         gameOverUI.SetActive(true);
 
-        waveCountText.text = "WAVES SURVIVED: " + waveSpawner.waveIndex.ToString();
+        if (waveSpawner.waveIndex < 20)
+        {
+            waveCountText.text = "WAVES SURVIVED: " + waveSpawner.waveIndex.ToString();
+        }
+        else
+        {
+            if (waveSpawner.finalWaveTimer > PlayerPrefs.GetFloat("FinalWaveHighScore"))
+            {
+                PlayerPrefs.SetFloat("FinalWaveHighScore", waveSpawner.finalWaveTimer);
+                waveCountText.text = "[NEW HIGHSCORE] FINAL WAVE TIME: " + FormatTimer(waveSpawner.finalWaveTimer);
+                waveCountText.color = Color.yellow;
+            }
+            else
+            {
+                waveCountText.text = "FINAL WAVE TIME: " + FormatTimer(waveSpawner.finalWaveTimer);
+                waveCountText.color = Color.white;
+            }
+        }
+
         enemyElimText.text = "ENEMIES ELIMINATED: " + PlayerStats.enemiesEliminated.ToString();
         totalProfitText.text = "PROFITS: $" + currencyUI.totalProfit.ToString();
         totalLossText.text = "LOSSES: $" + currencyUI.totalLosses.ToString();

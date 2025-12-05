@@ -16,15 +16,37 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
     public TextMeshProUGUI statusText;
     public TextMeshProUGUI cashText;
+    public TextMeshProUGUI finalWaveHighscoreText;
     public Animator clearTextAnimator;
     public CurrencyUI currencyUI;
 
+    public AudioSource musicPlayer;
+    public AudioClip backgroundMusic;
+    public AudioClip finalWaveMusic;
+
     public float timeBetweenWaves = 5f;
     private float countdown = 3f;
+    public float finalWaveTimer = 0f;
 
     public int waveIndex = 0;
     private int enemiesLeftToSpawn = 0;
     private bool waveStarted = false;
+
+    void Start()
+    {
+        musicPlayer.clip = backgroundMusic;
+        musicPlayer.Play();
+        finalWaveHighscoreText.text = "";
+    }
+
+    private string FormatTimer(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60f);
+        int seconds = Mathf.FloorToInt(time % 60f);
+        int hundredths = Mathf.FloorToInt((time * 100f) % 100f);
+
+        return string.Format("{0:00}:{1:00}.{2:00}", minutes, seconds, hundredths);
+    }
 
     void Update()
     {
@@ -54,9 +76,20 @@ public class WaveSpawner : MonoBehaviour
         }
         else
         {
-            statusText.text = "THE FINAL WAVE.";
+            if (musicPlayer.clip != finalWaveMusic)
+            {
+                musicPlayer.clip = finalWaveMusic;
+                musicPlayer.Play();
+            }
+
+            statusText.text = "THE FINAL WAVE - " + FormatTimer(finalWaveTimer);
             statusText.color = Color.red;
+
+            float highScore = PlayerPrefs.GetFloat("FinalWaveHighScore", 0f);
+            finalWaveHighscoreText.text = "FINAL WAVE HIGHSCORE: " + FormatTimer(highScore);
+
             countdown = Mathf.Infinity;
+            finalWaveTimer += Time.deltaTime;
         }
     }
 

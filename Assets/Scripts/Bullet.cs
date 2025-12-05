@@ -9,6 +9,8 @@ public class Bullet : MonoBehaviour
     private CurrencyUI currencyUI;
     public GameObject turretOrigin;
 
+    //public AudioSource hitSound;
+
     public void Seek(Transform _target, GameObject origin)
     {
         target = _target;
@@ -42,6 +44,7 @@ public class Bullet : MonoBehaviour
 
     void HitTarget()
     {
+        //hitSound.Play();
         target.GetComponent<Enemy>().takeDamage(damage);
         turretOrigin.GetComponent<Turret>().hitAmount++;
         Destroy(gameObject);

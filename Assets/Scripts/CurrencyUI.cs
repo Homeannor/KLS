@@ -8,6 +8,9 @@ public class CurrencyUI : MonoBehaviour
     public Animator decreaseTextAnimator;
     public GameObject profitTextLabel;
 
+    public AudioSource profitSound;
+    public AudioSource decreaseSound;
+
     public int totalProfit;
     public int totalLosses;
 
@@ -38,6 +41,7 @@ public class CurrencyUI : MonoBehaviour
 
         if (amount > 0)
         {
+            profitSound.Play();
             profitTextAnimator.SetTrigger("ProfitFlash");
             profitTextAnimator.gameObject.GetComponent<TextMeshProUGUI>().text = "+ $" + amount.ToString();
 
@@ -49,6 +53,7 @@ public class CurrencyUI : MonoBehaviour
     {
         if (amount > 0)
         {
+            decreaseSound.Play();
             decreaseTextAnimator.SetTrigger("DecreaseFlash");
             decreaseTextAnimator.gameObject.GetComponent<TextMeshProUGUI>().text = "- $" + amount.ToString();
 

@@ -32,6 +32,8 @@ public class Turret : MonoBehaviour
     public GameObject abilityAura;
     private bool upgraded;
 
+    public AudioSource shootSound;
+    public AudioSource upgradeSound;
 
     void Start()
     {
@@ -113,6 +115,7 @@ public class Turret : MonoBehaviour
         {
             upgraded = true;
 
+            upgradeSound.Play();
             abilityCanvas.SetActive(false);
             abilityAura.SetActive(true);
             fireRate /= 2;
@@ -140,6 +143,7 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
+        shootSound.Play();
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
