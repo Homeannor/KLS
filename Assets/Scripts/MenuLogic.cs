@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuLogic : MonoBehaviour
+
 {
     public void playButton()
     {
@@ -17,4 +18,14 @@ public class MenuLogic : MonoBehaviour
     {
         Application.Quit();
     }
+
+    /*void Start()
+    {
+        GameObject menuObject = GameObject.FindWithTag("MenuBackground");
+        //menuAnimator = menuObject.GetComponent<Animator>();
+        //menuAnimator.SetTrigger("MenuAnim");
+
+        menuAnimator.Rebind();
+        menuAnimator.Update(0f);
+    }*/
 }
